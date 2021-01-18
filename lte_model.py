@@ -17,7 +17,7 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
     data["Radio_CQI_Distribution"] / 10000 > 15, 1, 2
 ))
 
-status = [1, 0, 2]
+# status = [1, 0, 2]
 log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(
     log_dir=log_dir, histogram_freq=1)
@@ -39,28 +39,28 @@ train_data = np.array(train_data)
 normalize = preprocessing.Normalization()
 normalize.adapt(train_data)
 
-# Creaa=ting the model
 
 # input_shape = X.shape
 
 # # print(Y)
 
-# model = keras.models.load_model("lte_model.h5")
-# if(model):
-#     print("model Found")
-#     pass
-# else:
-#     print("Creating new model")
-model = keras.Sequential([
-    normalize,
-    layers.Dense(5, activation="relu"),
-    layers.Dense(5, activation="softmax"),
-    layers.Dense(3, activation="softmax"),
-])
+# Creating the model
+model = keras.models.load_model("lte_model.h5")
+if(model):
+    print("model Found")
+    pass
+else:
+    print("Creating new model")
+    model = keras.Sequential([
+        normalize,
+        layers.Dense(5, activation="relu"),
+        layers.Dense(5, activation="softmax"),
+        layers.Dense(3, activation="softmax"),
+    ])
+    model.compile(optimizer="adam",
+                  loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 
 
-model.compile(optimizer="adam",
-              loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 model.fit(train_data, train_labels, epochs=1000)
 
 test_loss, test_acc = model.evaluate(test_data, test_labels)
