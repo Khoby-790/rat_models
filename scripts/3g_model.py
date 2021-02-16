@@ -18,6 +18,7 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
     data["Radio_CQI_Distribution"] / 10000 > 15, 1, 2
 ))
 
+
 xlib = Lib()
 
 # status = [1, 0, 2]

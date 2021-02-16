@@ -36,3 +36,7 @@ class Lib:
             return loaded_model
         else:
             return None
+
+    def extractData(self, dataPath):
+        excel_data = pd.read_excel(dataPath)
+        print(excel_data)
