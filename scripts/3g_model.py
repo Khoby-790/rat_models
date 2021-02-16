@@ -28,8 +28,8 @@ Y = data[["status"]]
 
 
 train_data, test_data = xlib.split_by_fractions(data, [0.7, 0.3])
-
-
+train_labels = train_data["status"]
+test_labels = test_data["status"]
 
 # train_data =>> array
 train_data = np.array(train_data)
