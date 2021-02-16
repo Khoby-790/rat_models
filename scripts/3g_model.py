@@ -45,7 +45,6 @@ train_labels_4g = Y.head(int(head))
 test_labels_4g = Y.tail(int(tail))
 # train_data_4g =
 
-# train_data_4g = pd.DataFrame(train_data_4g)
 train_data_4g = np.array(train_data_4g)
 
 print("After Array")
