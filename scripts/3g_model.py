@@ -22,20 +22,18 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
 
 xlib = Lib()
 
-# status = [1, 0, 2]
-log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
-tensorboard_callback = tf.keras.callbacks.TensorBoard(
-    log_dir=log_dir, histogram_freq=1)
+
 
 
 X = data[["Lat", "Long", "Number_of_Users", "Radio_CQI_Distribution"]]
 Y = data[["status"]]
+
+
 train_data = X.head(1109)
 test_data = X.tail(476)
 train_labels = Y.head(1109)
 test_labels = Y.tail(476)
 
-# print(data.sort_values(['Radio_CQI_Distribution'], ascending=True))
 
 # train_data =>> array
 train_data = np.array(train_data)
@@ -48,8 +46,8 @@ normalize.adapt(train_data)
 # input_shape = X.shape
 
 # File Paths
-modelPath = "../lte_model/lte_model.json"
-weightsPath = "../lte_model/lte_model.h5"
+modelPath = "../lte_model/3g_model.json"
+weightsPath = "../lte_model/3g_model.h5"
 
 
 # # print(Y)
