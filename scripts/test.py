@@ -10,6 +10,8 @@ excel_data = pd.read_csv(
 actual_set = pd.DataFrame(excel_data, columns=["Technology", "Test_type",
                                                "Data Speed(Mbps)", "Signal_strength"])
 
+actual_set.reset_index(drop=True, inplace=False)
+
 actual_set = actual_set[actual_set["Signal_strength"] != "na"]
 
 fourG_data = actual_set[actual_set["Technology"] != "3G"]
