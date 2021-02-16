@@ -27,10 +27,8 @@ X = data[["Technoology", "Test_type", "Data Speed(Mbps)", "Signal_strength"]]
 Y = data[["status"]]
 
 
-train_data, test_data = xlib.split_by_fractions(X, [0.7, 0.3])
+train_data, test_data = xlib.split_by_fractions(data, [0.7, 0.3])
 
-train_labels = Y.head(1109)
-test_labels = Y.tail(476)
 
 
 # train_data =>> array
