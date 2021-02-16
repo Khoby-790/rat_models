@@ -42,7 +42,7 @@ train_labels_4g = np.array(train_data_4g["status"])
 test_labels_4g = test_data_4g["status"]
 # train_data_4g =
 
-# train_data_4g = np.array(train_data_4g)
+train_data_4g = pd.DataFrame(train_data_4g)
 
 print("After Array")
 print(train_data_4g)
