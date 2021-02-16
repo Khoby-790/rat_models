@@ -56,7 +56,8 @@ train_data = np.array(train_data)
 normalize_lte = preprocessing.Normalization()
 normalize_lte.adapt(train_data)
 
-
+normalize_4g = preprocessing.Normalization()
+normalize_4g.adapt(train_data_4g)
 # input_shape = X.shape
 
 # File Paths
@@ -72,7 +73,7 @@ weightsPath = "../lte_model/lte_model.h5"
 #     print("model Found")
 #     pass
 # else:
-print("Creating new model")
+print("Creating new LTE model")
 model_lte = keras.Sequential([
     normalize_lte,
     layers.Dense(16, activation="relu"),
@@ -82,6 +83,15 @@ model_lte = keras.Sequential([
 model_lte.compile(optimizer="adam",
                   loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
+print("Creating new 4G model")
+model_lte = keras.Sequential([
+    normalize_4g,
+    layers.Dense(16, activation="relu"),
+    layers.Dense(18, activation="softmax"),
+    layers.Dense(3, activation="softmax"),
+])
+model_lte.compile(optimizer="adam",
+                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 model_lte.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model_lte.evaluate(test_data, test_labels)
