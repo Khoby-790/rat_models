@@ -51,7 +51,7 @@ normalize = preprocessing.Normalization()
 normalize.adapt(train_data_4g)
 
 print("After normalize")
-print(train_data_4g)
+print(train_labels_4g)
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
@@ -62,5 +62,7 @@ model_4g = keras.Sequential([
 ])
 model_4g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+
+
 
 model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
