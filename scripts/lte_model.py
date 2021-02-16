@@ -21,12 +21,6 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
 ))
 
 
-four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 30, 0, np.where(
-    np.absolute(four_g_data["Signal_strength"]) > 15, 1, 2
-))
-
-print(four_g_data)
-
 xlib = Lib()
 
 # status = [1, 0, 2]
