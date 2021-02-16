@@ -42,6 +42,10 @@ test_data = X.tail(476)
 train_labels = Y.head(1109)
 test_labels = Y.tail(476)
 
+train_data_4g, test_data_4g = xlib.split_by_fractions(four_g_data,[0.8, 0.2])
+
+print(train_data_4g)
+
 # print(data.sort_values(['Radio_CQI_Distribution'], ascending=True))
 
 # train_data =>> array
