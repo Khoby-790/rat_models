@@ -15,15 +15,15 @@ data = pd.read_csv("../data/3g_data.csv", usecols=[
 
 data = pd.DataFrame(data)
 # data["status"] = np.random.randint(1, 3, size=data.shape[0])
-data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.where(
-    data["Radio_CQI_Distribution"] / 10000 > 15, 1, 2
+data["status"] = np.where(data["Signal_strength"] > 30, 0, np.where(
+    data["Signal_strength"] > 15, 1, 2
 ))
 
 
 xlib = Lib()
 
 
-X = data[["Lat", "Long", "Number_of_Users", "Radio_CQI_Distribution"]]
+X = data[["Technoology", "Test_type", "Data Speed(Mbps)", "Signal_strength"]]
 Y = data[["status"]]
 
 
