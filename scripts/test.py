@@ -16,6 +16,9 @@ threeG_data = actual_set[actual_set["Technology"] == "3G"]
 fourG_data = fourG_data[fourG_data["Signal_strength"] != "na"]
 threeG_data = actual_set[actual_set["Signal_strength"] != "na"]
 
+fourG_data["Signal_strength"] = fourG_data[np.absolute(
+    fourG_data["Signal_strength"])]
+
 fourG_data["status"] = np.where(np.absolute(fourG_data["Signal_strength"]) > 30, 0, np.where(
     np.absolute(fourG_data["Signal_strength"]) > 15, 1, 2
 ))
