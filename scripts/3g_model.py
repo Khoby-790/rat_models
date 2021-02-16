@@ -8,8 +8,8 @@ import numpy as np
 import h5py
 import datetime
 
-data = pd.read_csv("../data/LTE_data.csv", usecols=[
-                   "Lat", "Long", "Number_of_Users", "Radio_CQI_Distribution"])
+data = pd.read_csv("../data/3g_data.csv", usecols=[
+                   "Technoology", "Test_type", "Data Speed(Mbps)", "Signal_strength"])
 
 
 data = pd.DataFrame(data)
