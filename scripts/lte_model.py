@@ -51,7 +51,7 @@ test_labels_4g = test_data_4g["status"]
 
 # train_data =>> array
 train_data = np.array(train_data)
-
+train_data_4g = np.array(train_data_4g)
 # normalization
 normalize_lte = preprocessing.Normalization()
 normalize_lte.adapt(train_data)
@@ -84,17 +84,19 @@ model_lte.compile(optimizer="adam",
                   loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 print("Creating new 4G model")
-model_lte = keras.Sequential([
+model_4g = keras.Sequential([
     normalize_4g,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
-model_lte.compile(optimizer="adam",
-                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+model_4g.compile(optimizer="adam",
+                 loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 model_lte.fit(train_data, train_labels, epochs=10)
+model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
 test_loss, test_acc = model_lte.evaluate(test_data, test_labels)
+test_loss_4g, test_acc_4g = model_lte.evaluate(test_data_4g, test_labels_4g)
 
 # model.save_weights()
 
