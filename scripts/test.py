@@ -20,7 +20,7 @@ threeG_data = actual_set[actual_set["Technology"] == "3G"]
 
 # fourG_data["Signal_strength"] = pd.Series(fourG_data["Signal_strength"]).abs()
 
-print(fourG_data["Signal_strength"])
+print(fourG_data["Technology"])
 
 fourG_data.drop("Technology")
 
