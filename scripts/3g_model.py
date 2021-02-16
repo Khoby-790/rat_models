@@ -67,5 +67,6 @@ model_4g.add(layers.Dense(64, activation="softmax"))
 model_4g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
-
+train_data_4g = np.asarray(train_data_4g).astype(np.int)
+train_labels_4g = np.asarray(train_labels_4g).astype(np.int)
 model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
