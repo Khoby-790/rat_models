@@ -40,7 +40,7 @@ test_labels_4g = test_data_4g["status"]
 # train_data_4g =
 
 train_data_4g = np.array(train_data_4g[[
-    "Signal_strength", "Test_type", "Data Speed(Mbps)"]])
+    "Signal_strength", "Test_type", "Data Speed(Mbps)", "status"]])
 
 normalize = preprocessing.Normalization()
 normalize.adapt(train_data_4g)
