@@ -59,23 +59,23 @@ weightsPath = "../lte_model/lte_model.h5"
 #     pass
 # else:
 print("Creating new model")
-model = keras.Sequential([
+model_fg = keras.Sequential([
     normalize,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
-model.compile(optimizer="adam",
+model_fg.compile(optimizer="adam",
               loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 
-model.fit(train_data, train_labels, epochs=10)
-test_loss, test_acc = model.evaluate(test_data, test_labels)
+model_fg.fit(train_data, train_labels, epochs=10)
+test_loss, test_acc = model_fg.evaluate(test_data, test_labels)
 
 # model.save_weights()
 
 # save model
-xlib.save_model(model, modelpath=modelPath, weightspath=weightsPath)
+xlib.save_model(model_fg, modelpath=modelPath, weightspath=weightsPath)
 
 
 print("Test Accuracy: ", test_acc)
