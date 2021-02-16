@@ -25,7 +25,6 @@ four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 3
     np.absolute(four_g_data["Signal_strength"]) > 15, 1, 2
 ))
 
-print(four_g_data)
 
 xlib = Lib()
 
@@ -42,9 +41,10 @@ test_data = X.tail(476)
 train_labels = Y.head(1109)
 test_labels = Y.tail(476)
 
-train_data_4g, test_data_4g = xlib.split_by_fractions(four_g_data,[0.8, 0.2])
+train_data_4g, test_data_4g = xlib.split_by_fractions(four_g_data, [0.8, 0.2])
+test_labels_4g = train_data_4g["status"]
 
-print(train_data_4g)
+print(test_labels_4g)
 
 # print(data.sort_values(['Radio_CQI_Distribution'], ascending=True))
 
