@@ -4,6 +4,7 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.layers.experimental import preprocessing
 from lib import Lib
+import math
 import numpy as np
 import h5py
 import datetime
@@ -13,10 +14,17 @@ data = pd.read_csv("../data/LTE_data.csv", usecols=[
 four_g_data = pd.read_csv("../data/4g_data.csv")
 
 data = pd.DataFrame(data)
+four_g_data = pd.DataFrame(four_g_data)
 # data["status"] = np.random.randint(1, 3, size=data.shape[0])
 data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.where(
     data["Radio_CQI_Distribution"] / 10000 > 15, 1, 2
 ))
+
+four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 30, 0, np.absolute(
+    np.absolute(four_g_data["Signal_strength"]) > 15, 1, 2
+))
+
+print(four_g_data)
 
 xlib = Lib()
 
@@ -66,7 +74,7 @@ model_lte = keras.Sequential([
     layers.Dense(3, activation="softmax"),
 ])
 model_lte.compile(optimizer="adam",
-              loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 
 model_lte.fit(train_data, train_labels, epochs=10)
