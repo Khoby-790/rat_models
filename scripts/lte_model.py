@@ -10,7 +10,7 @@ import datetime
 
 data = pd.read_csv("../data/LTE_data.csv", usecols=[
                    "Lat", "Long", "Number_of_Users", "Radio_CQI_Distribution"])
-
+four_g_data = pd.read_csv("../data/4g_data.csv")
 
 data = pd.DataFrame(data)
 # data["status"] = np.random.randint(1, 3, size=data.shape[0])
@@ -59,23 +59,23 @@ weightsPath = "../lte_model/lte_model.h5"
 #     pass
 # else:
 print("Creating new model")
-model_fg = keras.Sequential([
+model_lte = keras.Sequential([
     normalize,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
-model_fg.compile(optimizer="adam",
+model_lte.compile(optimizer="adam",
               loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 
-model_fg.fit(train_data, train_labels, epochs=10)
-test_loss, test_acc = model_fg.evaluate(test_data, test_labels)
+model_lte.fit(train_data, train_labels, epochs=10)
+test_loss, test_acc = model_lte.evaluate(test_data, test_labels)
 
 # model.save_weights()
 
 # save model
-xlib.save_model(model_fg, modelpath=modelPath, weightspath=weightsPath)
+xlib.save_model(model_lte, modelpath=modelPath, weightspath=weightsPath)
 
 
 print("Test Accuracy: ", test_acc)
