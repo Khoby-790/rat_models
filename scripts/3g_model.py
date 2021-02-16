@@ -43,7 +43,7 @@ train_data_4g = X.head(int(head))
 test_data_4g = X.tail(int(tail))
 train_labels_4g = Y.head(int(head))
 test_labels_4g = Y.tail(int(tail))
-# train_data_4g =
+
 
 train_data_4g = np.array(train_data_4g)
 
