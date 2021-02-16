@@ -45,23 +45,23 @@ modelPath = "../lte_model/3g_model.json"
 weightsPath = "../lte_model/3g_model.h5"
 
 
-# # print(Y)
-model = xlib.load_model(modelPath, weightsPath)
+print("Creating new model for 3g")
+model_3g = keras.Sequential([
+    normalize,
+    layers.Dense(16, activation="relu"),
+    layers.Dense(18, activation="softmax"),
+    layers.Dense(3, activation="softmax"),
+])
 
-# Creating the model
-if(model):
-    print("model Found")
-    pass
-else:
-    print("Creating new model")
-    model = keras.Sequential([
-        normalize,
-        layers.Dense(16, activation="relu"),
-        layers.Dense(18, activation="softmax"),
-        layers.Dense(3, activation="softmax"),
-    ])
-    model.compile(optimizer="adam",
-                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+model_4g = keras.Sequential([
+    normalize,
+    layers.Dense(16, activation="relu"),
+    layers.Dense(18, activation="softmax"),
+    layers.Dense(3, activation="softmax"),
+])
+
+model.compile(optimizer="adam",
+              loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 
 model.fit(train_data, train_labels, epochs=10)
