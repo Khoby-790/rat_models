@@ -16,19 +16,12 @@ threeG_data = actual_set[actual_set["Technology"] == "3G"]
 fourG_data = fourG_data[fourG_data["Signal_strength"] != "na"]
 threeG_data = actual_set[actual_set["Signal_strength"] != "na"]
 
-fourG_data["Signal_strength"] = fourG_data[np.absolute(
-    fourG_data["Signal_strength"])]
+# fourG_data["Signal_strength"] = fourG_data[np.absolute(
+#     fourG_data["Signal_strength"])]
 
-fourG_data["status"] = np.where(np.absolute(fourG_data["Signal_strength"]) > 30, 0, np.where(
-    np.absolute(fourG_data["Signal_strength"]) > 15, 1, 2
-))
+print(fourG_data["Signal_strength"]);
 
-
-threeG_data["status"] = np.where(np.absolute(threeG_data["Signal_strength"]) > 30, 0, np.where(
-    np.absolute(threeG_data["Signal_strength"]) > 15, 1, 2
-))
-
-threeG_data.to_csv("../data/3g_data.csv")
-fourG_data.to_csv("../data/4g_data.csv")
+# threeG_data.to_csv("../data/3g_data.csv")
+# fourG_data.to_csv("../data/4g_data.csv")
 
 # print(fourG_data)
