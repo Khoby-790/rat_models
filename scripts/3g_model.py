@@ -38,7 +38,6 @@ normalize = preprocessing.Normalization()
 normalize.adapt(train_data)
 
 
-# input_shape = X.shape
 
 # File Paths
 modelPath = "../lte_model/3g_model.json"
@@ -66,6 +65,7 @@ model_3g.compile(optimizer="adam",
 model_4g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
+print("---- TRAINING ZONE -----")
 model_3g.fit(train_data, train_labels, epochs=10)
 model_4g.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model_3g.evaluate(test_data, test_labels)
