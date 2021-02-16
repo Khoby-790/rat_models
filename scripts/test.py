@@ -22,7 +22,7 @@ threeG_data = actual_set[actual_set["Technology"] == "3G"]
 
 print(fourG_data["Signal_strength"])
 
-fourG_data.drop(["Technology"])
+fourG_data.drop("Technology")
 
 threeG_data.to_csv("../data/3g_data.csv")
 fourG_data.to_csv("../data/4g_data.csv")
