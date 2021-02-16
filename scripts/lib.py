@@ -1,6 +1,10 @@
 import pandas as pd
 from tensorflow.keras.models import model_from_json
 import os
+import numpy as np
+
+
+np.random.seed(100)
 
 
 class Lib:
