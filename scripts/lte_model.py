@@ -74,6 +74,9 @@ model_lte.compile(optimizer="adam",
 
 print(train_data)
 
+print("------------")
+print(train_labels)
+
 model_lte.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model_lte.evaluate(test_data, test_labels)
 
