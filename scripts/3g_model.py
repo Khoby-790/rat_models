@@ -36,7 +36,6 @@ normalize = preprocessing.Normalization()
 normalize.adapt(train_data)
 
 
-
 # File Paths
 modelPath = "../lte_model/3g_model.json"
 weightsPath = "../lte_model/3g_model.h5"
