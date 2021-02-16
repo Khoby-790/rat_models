@@ -46,7 +46,8 @@ normalize_4g.adapt(X)
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
-    normalize_4g,
+    # normalize_4g,
+    layers.Flatten(5),
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
