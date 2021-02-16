@@ -5,6 +5,7 @@ from tensorflow.keras import layers
 from tensorflow.keras.layers.experimental import preprocessing
 from lib import Lib
 import numpy as np
+from decimal import Decimal
 import h5py
 import datetime
 
@@ -19,7 +20,7 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
     data["Radio_CQI_Distribution"] / 10000 > 15, 1, 2
 ))
 
-four_g_data["Signal_strength"] = [abs(number)
+four_g_data["Signal_strength"] = [abs(Decimal(number))
                                   for number in four_g_data["Signal_strength"]]
 
 four_g_data["status"] = np.where(four_g_data["Signal_strength"] > 30, 0, abs(
