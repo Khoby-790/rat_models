@@ -11,3 +11,6 @@ import datetime
 
 
 four_g_data = pd.read_csv("../data/4g_data.csv")
+
+
+print(four_g_data)
