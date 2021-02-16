@@ -24,7 +24,7 @@ four_g_data["Test_type"] = np.where(
 four_g_data["Technology"] = np.where(
     (four_g_data.Test_type == '3G'), 2, four_g_data.Test_type)
 
-print(four_g_data)
+# print(four_g_data)
 
 four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 85, 0, np.where(
     np.absolute(four_g_data["Signal_strength"]) > 59, 1, np.where(np.absolute(four_g_data["Signal_strength"]) > 50,
@@ -50,7 +50,7 @@ print(train_data_4g)
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
-    layers.Dense(3, activation="sigmoid"),
+    normalize_4g,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
