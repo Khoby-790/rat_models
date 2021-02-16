@@ -4,7 +4,6 @@ from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.layers.experimental import preprocessing
 from lib import Lib
-import math
 import numpy as np
 import h5py
 import datetime
