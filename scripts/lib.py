@@ -37,6 +37,19 @@ class Lib:
         else:
             return None
 
+    def split_by_fractions(self, df: pd.DataFrame, fracs: list, random_state: int = 42):
+        assert sum(fracs) == 1.0, 'fractions sum is not 1.0 (fractions_sum={})'.format(
+            sum(fracs))
+        remain = df.index.copy().to_frame()
+        res = []
+        for i in range(len(fracs)):
+            fractions_sum = sum(fracs[i:])
+            frac = fracs[i]/fractions_sum
+            idxs = remain.sample(frac=frac, random_state=random_state).index
+            remain = remain.drop(idxs)
+            res.append(idxs)
+        return [df.loc[idxs] for idxs in res]
+
     def extractData(self, dataPath):
         excel_data = pd.read_excel(dataPath)
         print(excel_data)
