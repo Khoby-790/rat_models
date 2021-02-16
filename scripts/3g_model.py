@@ -46,7 +46,8 @@ normalize_4g = preprocessing.Normalization()
 normalize_4g.adapt(train_data_4g)
 
 
-print(train_data_4g);
+print(train_data_4g[[
+    "Signal_strength", "Test_type", "Data Speed(Mbps)"]])
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
