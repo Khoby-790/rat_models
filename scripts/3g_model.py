@@ -63,9 +63,11 @@ model_4g = keras.Sequential([
 
 model_3g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
-
+model_4g.compile(optimizer="adam",
+                 loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 model_3g.fit(train_data, train_labels, epochs=10)
+model_4g.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model_3g.evaluate(test_data, test_labels)
 
 # save model
