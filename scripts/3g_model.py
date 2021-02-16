@@ -39,10 +39,10 @@ tail = len(four_g_data) * 0.2
 
 X = four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]]
 Y = four_g_data[["status"]]
-train_data_4g = four_g_data.head(int(head))
-test_data_4g = four_g_data.tail(int(tail))
-train_labels_4g = train_data_4g["status"]
-test_labels_4g = test_data_4g["status"]
+train_data_4g = X.head(int(head))
+test_data_4g = X.tail(int(tail))
+train_labels_4g = Y.head(int(head))
+test_labels_4g = Y.tail(int(tail))
 # train_data_4g =
 
 # train_data_4g = pd.DataFrame(train_data_4g)
