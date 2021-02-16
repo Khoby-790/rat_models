@@ -14,7 +14,6 @@ data = pd.read_csv("../data/3g_data.csv", usecols=[
 
 
 data = pd.DataFrame(data)
-# data["status"] = np.random.randint(1, 3, size=data.shape[0])
 data["status"] = np.where(data["Signal_strength"] > 30, 0, np.where(
     data["Signal_strength"] > 15, 1, 2
 ))
@@ -68,11 +67,9 @@ else:
 model.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model.evaluate(test_data, test_labels)
 
-# model.save_weights()
 
 # save model
 xlib.save_model(model, modelpath=modelPath, weightspath=weightsPath)
-
 
 print("Test Accuracy: ", test_acc)
 print("Test loss: ", test_loss)
