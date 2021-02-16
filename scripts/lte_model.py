@@ -21,8 +21,8 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
 ))
 
 
-four_g_data["status"] = np.where(data["Signal_strength"] > 30, 0, np.where(
-    data["Signal_strength"] > 15, 1, 2
+four_g_data["status"] = np.where(four_g_data["Signal_strength"] > 30, 0, np.where(
+    four_g_data["Signal_strength"] > 15, 1, 2
 ))
 
 print(four_g_data)
