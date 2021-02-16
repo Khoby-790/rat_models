@@ -34,36 +34,36 @@ four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 8
 ))
 
 
-# print(four_g_data.tail(100))
+print(len(four_g_data))
 
 
-train_data_4g = four_g_data.head(len(four_g_data) * 0.8)
-test_data_4g = four_g_data.tail(len(four_g_data) * 0.2)
-train_labels_4g = train_data_4g["status"]
-test_labels_4g = test_data_4g["status"]
-# train_data_4g =
+# train_data_4g = four_g_data.head(len(four_g_data) * 0.8)
+# test_data_4g = four_g_data.tail(len(four_g_data) - (len(four_g_data) * 0.2))
+# train_labels_4g = train_data_4g["status"]
+# test_labels_4g = test_data_4g["status"]
+# # train_data_4g =
 
-# train_data_4g = pd.DataFrame(train_data_4g)
-train_data_4g = np.array(train_data_4g)
+# # train_data_4g = pd.DataFrame(train_data_4g)
+# train_data_4g = np.array(train_data_4g)
 
-print("After Array")
-print(train_data_4g)
+# print("After Array")
+# print(train_data_4g)
 
-normalize = preprocessing.Normalization()
-normalize.adapt(train_data_4g)
+# normalize = preprocessing.Normalization()
+# normalize.adapt(train_data_4g)
 
-print("After normalize")
-print(train_labels_4g)
+# print("After normalize")
+# print(train_labels_4g)
 
-print("Creating new 4G model")
-model_4g = keras.Sequential([
-    normalize,
-    layers.Dense(16, activation="relu"),
-    layers.Dense(18, activation="softmax"),
-    layers.Dense(3, activation="softmax"),
-])
-model_4g.compile(optimizer="adam",
-                 loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+# print("Creating new 4G model")
+# model_4g = keras.Sequential([
+#     normalize,
+#     layers.Dense(16, activation="relu"),
+#     layers.Dense(18, activation="softmax"),
+#     layers.Dense(3, activation="softmax"),
+# ])
+# model_4g.compile(optimizer="adam",
+#                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
 
-model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
+# model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
