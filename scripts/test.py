@@ -16,7 +16,6 @@ fourG_data = actual_set[actual_set["Technology"] !=
 threeG_data = actual_set[actual_set["Technology"] ==
                          "3G" and actual_set["Signal_strength"] != "na"]
 
-fourG_data.replace({'Signal_strength': {'na': 0}})
 
 print(fourG_data["Signal_strength"])
 
