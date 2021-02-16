@@ -36,7 +36,7 @@ four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 8
 
 head = len(four_g_data) * 0.8
 
-print(head)
+print(four_g_data.head(int(head)))
 
 
 # train_data_4g = four_g_data.head(len(four_g_data) * 0.8)
