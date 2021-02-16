@@ -8,9 +8,8 @@ excel_data = pd.read_csv(
 
 
 actual_set = pd.DataFrame(excel_data, columns=["Technology", "Test_type",
-                                               "Data Speed(Mbps)", "Signal_strength"])
+                                               "Data Speed(Mbps)", "Signal_strength"]).reset_index(drop=True)
 
-actual_set.reset_index(drop=True, inplace=False)
 
 actual_set = actual_set[actual_set["Signal_strength"] != "na"]
 
