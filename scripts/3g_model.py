@@ -3,6 +3,7 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.layers.experimental import preprocessing
+from tensorflow.keras.callbacks import TensorBoard
 from lib import Lib
 import numpy as np
 import h5py
