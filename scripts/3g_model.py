@@ -9,11 +9,11 @@ import numpy as np
 import h5py
 import datetime
 
-data = pd.read_csv("../data/3g_data.csv", usecols=[
-                   "Technoology", "Test_type", "Data Speed(Mbps)", "Signal_strength"])
+data_3g = pd.read_csv("../data/3g_data.csv", usecols=[
+    "Technoology", "Test_type", "Data Speed(Mbps)", "Signal_strength"])
 
 
-data = pd.DataFrame(data)
+data = pd.DataFrame(data_3g)
 data["status"] = np.where(data["Signal_strength"] > 30, 0, np.where(
     data["Signal_strength"] > 15, 1, 2
 ))
@@ -66,7 +66,6 @@ else:
 
 model.fit(train_data, train_labels, epochs=10)
 test_loss, test_acc = model.evaluate(test_data, test_labels)
-
 
 # save model
 xlib.save_model(model, modelpath=modelPath, weightspath=weightsPath)
