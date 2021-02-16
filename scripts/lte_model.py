@@ -45,7 +45,7 @@ train_data_4g, test_data_4g = xlib.split_by_fractions(four_g_data, [0.8, 0.2])
 train_labels_4g = train_data_4g["status"]
 test_labels_4g = test_data_4g["status"]
 
-print(test_label_4g)
+# print(test_labels_4g)
 
 # print(data.sort_values(['Radio_CQI_Distribution'], ascending=True))
 
@@ -53,8 +53,8 @@ print(test_label_4g)
 train_data = np.array(train_data)
 
 # normalization
-normalize = preprocessing.Normalization()
-normalize.adapt(train_data)
+normalize_lte = preprocessing.Normalization()
+normalize_lte.adapt(train_data)
 
 
 # input_shape = X.shape
@@ -74,7 +74,7 @@ weightsPath = "../lte_model/lte_model.h5"
 # else:
 print("Creating new model")
 model_lte = keras.Sequential([
-    normalize,
+    normalize_lte,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
