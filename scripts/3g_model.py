@@ -44,6 +44,8 @@ test_labels_4g = test_data_4g["status"]
 
 train_data_4g = np.array(train_data_4g)
 
+print(train_data_4g)
+
 normalize = preprocessing.Normalization()
 normalize.adapt(train_data_4g)
 
