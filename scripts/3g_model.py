@@ -15,7 +15,7 @@ four_g_data = pd.read_csv("../data/4g_data.csv")
 
 four_g_data = pd.DataFrame(four_g_data)
 
-print(four_g_data)
+print(four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]])
 
 # four_g_data["Test_type"] = np.where(
 #     (four_g_data.Test_type == 'Upload'), 1, four_g_data.Test_type)
