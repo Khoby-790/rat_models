@@ -15,13 +15,7 @@ actual_set = pd.DataFrame(excel_data, columns=["Technology", "Test_type",
 fourG_data = actual_set[actual_set["Technology"] != "3G"]
 threeG_data = actual_set[actual_set["Technology"] == "3G"]
 
-fourG_data["status"] = np.where(np.absolute(fourG_data["Signal_strength"]) > 30, 0, np.where(
-    np.absolute(fourG_data["Signal_strength"]) / 10000 > 15, 1, 2
-))
 
-threeG_data["status"] = np.where(np.absolute(threeG_data["Signal_strength"]) > 30, 0, np.where(
-    np.absolute(threeG_data["Signal_strength"]) / 10000 > 15, 1, 2
-))
 
 
 threeG_data.to_csv("../data/3g_data.csv")
