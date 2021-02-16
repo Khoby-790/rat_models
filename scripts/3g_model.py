@@ -37,7 +37,8 @@ four_g_data["status"] = np.where(np.absolute(four_g_data["Signal_strength"]) > 8
 head = len(four_g_data) * 0.8
 tail = len(four_g_data) * 0.2
 
-
+X = four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]]
+Y = four_g_data[["status"]]
 train_data_4g = four_g_data.head(int(head))
 test_data_4g = four_g_data.tail(int(tail))
 train_labels_4g = train_data_4g["status"]
