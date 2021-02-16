@@ -13,8 +13,8 @@ actual_set = pd.DataFrame(excel_data, columns=["Technology", "Test_type",
 
 fourG_data = actual_set[actual_set["Technology"] != "3G"]
 threeG_data = actual_set[actual_set["Technology"] == "3G"]
-
-fourG_data.replace({'Signal_strength': {'na': 0}})
+fourG_data = fourG_data[fourG_data["Signal_strength"] != "na"]
+threeG_data = actual_set[actual_set["Signal_strength"] != "na"]
 
 print(fourG_data["Signal_strength"])
 
