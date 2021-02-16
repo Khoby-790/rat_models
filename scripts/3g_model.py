@@ -46,7 +46,7 @@ normalize_4g.adapt(X)
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
-    normalize_4g,
+    # normalize_4g,
     # layers.Flatten(5),
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
@@ -55,4 +55,4 @@ model_4g = keras.Sequential([
 model_4g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
-model_4g.fit(X, train_labels_4g, epochs=10)
+model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
