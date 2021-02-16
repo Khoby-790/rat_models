@@ -45,14 +45,14 @@ weightsPath = "../lte_model/3g_model.h5"
 
 
 print("Creating Models")
-print("---- 3G Models -----")
+print("---- 3G Model -----")
 model_3g = keras.Sequential([
     normalize,
     layers.Dense(16, activation="relu"),
     layers.Dense(18, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
-print("---- 4G Models -----")
+print("---- 4G Model -----")
 model_4g = keras.Sequential([
     normalize,
     layers.Dense(16, activation="relu"),
@@ -60,6 +60,7 @@ model_4g = keras.Sequential([
     layers.Dense(3, activation="softmax"),
 ])
 
+print("---- COMPILIING MODELS -----")
 model_3g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 model_4g.compile(optimizer="adam",
