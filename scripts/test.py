@@ -16,11 +16,11 @@ threeG_data = actual_set[actual_set["Technology"] == "3G"]
 fourG_data = fourG_data[fourG_data["Signal_strength"] != "na"]
 threeG_data = actual_set[actual_set["Signal_strength"] != "na"]
 
-data_4g = np.array(fourG_data["Signal_strength"])
+# data_4g = np.array(fourG_data["Signal_strength"])
 
-fourG_data["Signal_strength"] = pd.Series(fourG_data["Signal_strength"]).abs()
+# fourG_data["Signal_strength"] = pd.Series(fourG_data["Signal_strength"]).abs()
 
-print(fourG_data["Signal_strength"])
+print(fourG_data["Signal_strength"].abs())
 
 # threeG_data.to_csv("../data/3g_data.csv")
 # fourG_data.to_csv("../data/4g_data.csv")
