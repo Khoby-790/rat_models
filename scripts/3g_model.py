@@ -59,8 +59,8 @@ print("After normalize")
 print(train_labels_4g)
 
 print("Creating new 4G model")
-model_4g = keras.Sequential();
-model_4g.add(layers.Dense(64, activation="relu"))
+model_4g = keras.Sequential()
+model_4g.add(layers.LSTM(64, activation="relu", input_shape=(3, head)))
 model_4g.add(layers.Dense(64, activation="softmax"))
 model_4g.add(layers.Dense(64, activation="softmax"))
 
