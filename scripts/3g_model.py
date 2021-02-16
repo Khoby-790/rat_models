@@ -59,12 +59,11 @@ print("After normalize")
 print(train_labels_4g)
 
 print("Creating new 4G model")
-model_4g = keras.Sequential([
-    normalize,
-    layers.Dense(64, activation="relu"),
-    layers.Dense(64, activation="softmax"),
-    layers.Dense(3, activation="softmax"),
-])
+model_4g = keras.Sequential();
+model_4g.add(layers.Dense(64, activation="relu"))
+model_4g.add(layers.Dense(64, activation="softmax"))
+model_4g.add(layers.Dense(64, activation="softmax"))
+
 model_4g.compile(optimizer="adam",
                  loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
 
