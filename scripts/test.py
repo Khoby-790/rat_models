@@ -10,12 +10,11 @@ excel_data = pd.read_csv(
 actual_set = pd.DataFrame(excel_data, columns=["Technology", "Test_type",
                                                "Data Speed(Mbps)", "Signal_strength"])
 
-# print(actual_set)
 
 fourG_data = actual_set[actual_set["Technology"] != "3G"]
 threeG_data = actual_set[actual_set["Technology"] == "3G"]
 
-
+print(fourG_data["Signal_strength"])
 
 
 threeG_data.to_csv("../data/3g_data.csv")
