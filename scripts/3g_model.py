@@ -38,7 +38,7 @@ train_data_4g, test_data_4g = xlib.split_by_fractions(four_g_data, [0.8, 0.2])
 train_labels_4g = train_data_4g["status"]
 test_labels_4g = test_data_4g["status"]
 
-X = np.array(train_data_4g.iloc(:1))
+X = np.array(train_data_4g)
 
 normalize_4g = preprocessing.Normalization()
 normalize_4g.adapt(X)
