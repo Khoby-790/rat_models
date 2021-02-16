@@ -23,8 +23,6 @@ data["status"] = np.where(data["Radio_CQI_Distribution"] / 10000 > 30, 0, np.whe
 xlib = Lib()
 
 
-
-
 X = data[["Lat", "Long", "Number_of_Users", "Radio_CQI_Distribution"]]
 Y = data[["status"]]
 
