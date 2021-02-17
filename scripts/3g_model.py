@@ -59,8 +59,8 @@ print(train_labels_4g)
 print("Creating new 4G model")
 model_4g = keras.Sequential([
     normalize,
-    layers.Dense(16, activation="relu"),
-    layers.Dense(18, activation="softmax"),
+    layers.Dense(64, activation="relu"),
+    layers.Dense(64, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
 model_4g.compile(optimizer="adam",
@@ -75,3 +75,6 @@ test_data_4g = np.asarray(test_data_4g).astype(np.int)
 test_labels_4g = np.asarray(test_labels_4g).astype(np.int)
 
 loss, accuracy = model_4g.evaluate(test_data_4g, test_labels_4g)
+
+print("Loss:", loss)
+print("Accuracy:", accuracy)
