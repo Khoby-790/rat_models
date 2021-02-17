@@ -58,8 +58,8 @@ model_4g = keras.Sequential([
     layers.Dense(64, activation="softmax"),
     layers.Dense(3, activation="softmax"),
 ])
-model_4g.compile(optimizer="adam",
-                 loss=tf.keras.losses.mean_squared_error, metrics=["accuracy"])
+model_4g.compile(optimizer=tf.optimizers.Adam(),
+                 loss=tf.losses.MeanSquaredError(), metrics=["accuracy"])
 
 train_data_4g = np.asarray(train_data_4g).astype(np.int)
 train_labels_4g = np.asarray(train_labels_4g).astype(np.int)
@@ -71,5 +71,5 @@ test_labels_4g = np.asarray(test_labels_4g).astype(np.int)
 
 loss, accuracy = model_4g.evaluate(test_data_4g, test_labels_4g)
 
-print("Loss:",loss)
+print("Loss:", loss)
 print("Accuracy:", accuracy)
