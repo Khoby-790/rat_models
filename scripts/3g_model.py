@@ -34,8 +34,8 @@ four_g_data["status"] = np.where(np.absolute(
 )
 
 
-head=len(four_g_data) * 0.8
-tail=len(four_g_data) * 0.2
+head=len(four_g_data) * 0.7
+tail=len(four_g_data) * 0.3
 
 X=four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]]
 Y=four_g_data[["status"]]
