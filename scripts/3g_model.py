@@ -28,7 +28,7 @@ four_g_data["Test_type"] = np.where(
 four_g_data["status"] = np.where(four_g_data["Signal_strength"] >= -85, 1, 0)
 
 
-head = len(four_g_data) * 0.7
+head = len(four_g_data) * 0.8
 tail = len(four_g_data) * 0.3
 
 X = four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]]
