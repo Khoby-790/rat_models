@@ -50,9 +50,9 @@ normalize.adapt(train_data_4g)
 print("Creating new 4G model")
 model_4g = keras.Sequential([
     normalize,
-    layers.Dense(64, activation="relu"),
-    layers.Dense(64, activation="softmax"),
-    layers.Dense(3, activation="softmax"),
+    layers.Dense(128, activation="relu"),
+    layers.Dense(512, activation="softmax"),
+    layers.Dense(2, activation="softmax"),
 ])
 model_4g.compile(optimizer=tf.optimizers.Adam(),
                  loss=tf.losses.MeanSquaredError(), metrics=["accuracy"])
