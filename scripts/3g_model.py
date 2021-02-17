@@ -45,20 +45,20 @@ test_labels_4g = Y.tail(int(tail))
 print("before Array")
 print(train_data_4g)
 
-train_data_4g = np.array(train_data_4g)
+# train_data_4g = np.array(train_data_4g)
 
 print("After Array")
 print(train_data_4g)
 
-normalize = preprocessing.Normalization()
-normalize.adapt(train_data_4g)
+# normalize = preprocessing.Normalization()
+# normalize.adapt(train_data_4g)
 
 print("After normalize")
 print(train_labels_4g)
 
 print("Creating new 4G model")
 model_4g = keras.Sequential([
-    normalize,
+    # normalize,
     layers.Dense(64, activation="relu"),
     layers.Dense(64, activation="softmax"),
     layers.Dense(3, activation="softmax"),
