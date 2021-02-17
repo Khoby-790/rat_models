@@ -70,3 +70,8 @@ train_data_4g = np.asarray(train_data_4g).astype(np.int)
 train_labels_4g = np.asarray(train_labels_4g).astype(np.int)
 
 model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
+
+test_data_4g = np.asarray(test_data_4g).astype(np.int)
+test_labels_4g = np.asarray(test_labels_4g).astype(np.int)
+
+loss, accuracy = model_4g.evaluate(test_data_4g, test_labels_4g)
