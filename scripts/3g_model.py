@@ -27,6 +27,8 @@ four_g_data["Test_type"] = np.where(
 
 four_g_data["status"] = np.where(four_g_data["Signal_strength"] >= -85, 1, 0)
 
+print(four_g_data.head(200))
+
 
 head = len(four_g_data) * 0.7
 tail = len(four_g_data) * 0.3
