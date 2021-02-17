@@ -24,11 +24,14 @@ four_g_data["Test_type"] = np.where(
 four_g_data["Technology"] = np.where(
     (four_g_data.Technology == '3G'), 2, four_g_data.Technology)
 
+# upload = 1 = "call"
+# Download = 2 = "Streaming"
+
 # print(four_g_data)
 
 four_g_data["status"] = np.where(np.absolute(
-    four_g_data["Signal_strength"]) <= 85, 1, 0)
-))
+    four_g_data["Signal_strength"]) <= 85, 1, 0
+)
 
 
 head=len(four_g_data) * 0.8
