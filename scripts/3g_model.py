@@ -17,12 +17,8 @@ four_g_data = pd.DataFrame(four_g_data)
 
 four_g_data["Test_type"] = np.where(
     (four_g_data.Test_type == 'Upload'), 1, four_g_data.Test_type)
-four_g_data["Technology"] = np.where(
-    (four_g_data.Technology == '4G'), 1, four_g_data.Technology)
 four_g_data["Test_type"] = np.where(
     (four_g_data.Test_type == 'Download'), 2, four_g_data.Test_type)
-four_g_data["Technology"] = np.where(
-    (four_g_data.Technology == '3G'), 2, four_g_data.Technology)
 
 # upload = 1 = "call"
 # Download = 2 = "Streaming"
