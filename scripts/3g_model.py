@@ -11,7 +11,7 @@ import datetime
 
 xlib = Lib()
 
-four_g_data = pd.read_csv("../data/4g_data.csv")
+four_g_data = pd.read_csv("../data/3g_data.csv")
 
 four_g_data = pd.DataFrame(four_g_data)
 
