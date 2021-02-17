@@ -31,7 +31,7 @@ four_g_data["status"] = np.where(four_g_data["Signal_strength"] >= -85, 1, 0)
 head = len(four_g_data) * 0.7
 tail = len(four_g_data) * 0.3
 
-X = four_g_data[["Signal_strength", "Test_type", "Data Speed(Mbps)"]]
+X = four_g_data[["Signal_strength", "Test_type"]]
 Y = four_g_data[["status"]]
 train_data_4g = X.head(int(head))
 test_data_4g = X.tail(int(tail))
@@ -60,7 +60,7 @@ model_4g.compile(optimizer=tf.optimizers.Adam(),
 train_data_4g = np.asarray(train_data_4g).astype(np.int)
 train_labels_4g = np.asarray(train_labels_4g).astype(np.int)
 
-model_4g.fit(train_data_4g, train_labels_4g, epochs=100)
+model_4g.fit(train_data_4g, train_labels_4g, epochs=10)
 
 test_data_4g = np.asarray(test_data_4g).astype(np.int)
 test_labels_4g = np.asarray(test_labels_4g).astype(np.int)
