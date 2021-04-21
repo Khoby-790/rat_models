@@ -8,6 +8,8 @@ NUMBER_OF_ACTIONS = 3
 NAME_OF_STABLE_COLUMN = ""
 MAX_STEPS = 20000
 
+INITIAL_SCORE = 1000
+
 
 class RATEnv(Env):
     """ A RAT environment for OpenAI gym"""
@@ -35,10 +37,16 @@ class RATEnv(Env):
 
         delay_modifier = (self.current_step / MAX_STEPS)
 
+        reward = self.score * delay_modifier
+
+        done = 
+
     def reset(self):
         # Reset the state of the environment to an initial state
         self.current_step = random.randint(
             0, len(self.df.loc[:, NAME_OF_STABLE_COLUMN].values) - 6)
+        self.score = INITIAL_SCORE
+
         return self._next_observation()
 
     def render(self, mode='human', close=False):
