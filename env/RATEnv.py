@@ -29,6 +29,11 @@ class RATEnv(Env):
 
         self.current_step += 1
 
+        if self.current_step > len(self.df.loc[:, NAME_OF_STABLE_COLUMN].values) - 6:
+            self.current_step = 0
+
+        delay_modifier = (self.current_step / MAX_STEPS)
+
     def reset(self):
         # Reset the state of the environment to an initial state
         self.current_step = random.randint(
