@@ -64,8 +64,8 @@ class Agent:
         self.actor_critic.load_weights(self.actor_critic.checkpoint_file)
 
     def learn(self, state, reward, state_, done):
-        state = tf.convert_to_tensor([state], dtype=tf.float32)
-        state_ = tf.convert_to_tensor([state_], dtype=tf.float32)
+        state = tf.convert_to_tensor([[state]], dtype=tf.float32)
+        state_ = tf.convert_to_tensor([[state_]], dtype=tf.float32)
         reward = tf.convert_to_tensor(
             reward, dtype=tf.float32)  # not fed to NN
         with tf.GradientTape(persistent=True) as tape:
