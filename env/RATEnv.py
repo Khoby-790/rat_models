@@ -25,11 +25,15 @@ class RATEnv(Env):
 
     def step(self, action):
         # Execute one time step within the environment
-        ...
+        self._take_action(action)
+
+        self.current_step += 1
 
     def reset(self):
         # Reset the state of the environment to an initial state
-        ...
+        self.current_step = random.randint(
+            0, len(self.df.loc[:, NAME_OF_STABLE_COLUMN].values) - 6)
+        return self._next_observation()
 
     def render(self, mode='human', close=False):
         # Render the environment to the screen
@@ -37,7 +41,7 @@ class RATEnv(Env):
 
     def _next_observation(self):
         # Go through the
-        pass
+        return self.df.sample()
 
     def _take_action(self, action):
         # take an action
