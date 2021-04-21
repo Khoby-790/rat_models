@@ -5,6 +5,7 @@ import random
 
 MAXIMUM_PERFORMANCE = 2000000
 NUMBER_OF_ACTIONS = 3
+NAME_OF_STABLE_COLUMN = ""
 
 
 class RATEnv(Env):
@@ -20,7 +21,7 @@ class RATEnv(Env):
         # Actions of the format Choose 3g, choose 2g and choose LTE
         self.action_space = spaces.Discrete(NUMBER_OF_ACTIONS)
         self.current_step = random.randint(
-            0, len(self.df.loc[:, 'Open'].values) - 6)
+            0, len(self.df.loc[:, NAME_OF_STABLE_COLUMN].values) - 6)
 
     def step(self, action):
         # Execute one time step within the environment
