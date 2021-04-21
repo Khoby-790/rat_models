@@ -32,7 +32,7 @@ if __name__ == '__main__':
             observation_, reward, done, info = env.step(action)
             score += reward
             if not load_checkpoint:
-                agent.learn(observation, action, reward, observation_, done)
+                agent.learn(observation, reward, observation_, done)
             observation = observation_
         score_history.append(score)
         avg_score = np.mean(score_history[-100:])
