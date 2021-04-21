@@ -1,7 +1,7 @@
 import gym
 import numpy as np
 from a3c.actor_critic import Agent
-from utils import plot_learning_curve
+from utils.utils import plot_learning_curve
 from gym import wrappers
 
 if __name__ == '__main__':
