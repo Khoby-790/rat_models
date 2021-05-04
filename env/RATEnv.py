@@ -8,6 +8,9 @@ NUMBER_OF_ACTIONS = 3
 NAME_OF_STABLE_COLUMN = ""
 MAX_STEPS = 20000
 
+THRESHOLD_FOR_2G = 12000
+THRESHOLD_FOR_3G = 32000
+
 INITIAL_SCORE = 1000
 
 
@@ -39,7 +42,7 @@ class RATEnv(Env):
 
         reward = self.score * delay_modifier
 
-        done = 
+        done =
 
     def reset(self):
         # Reset the state of the environment to an initial state
@@ -59,4 +62,83 @@ class RATEnv(Env):
 
     def _take_action(self, action):
         # take an action
-        pass
+        callType = action["service_type"]
+#         If(calltype=Cs)
+
+#         If(Lg < Tg)
+#            If(Term=Class A)
+#                Allocate Service to 2G
+#             End
+
+#         ElseIf(Lu < Tu)
+
+#            If (Term  = Class B)
+#                Allocate Service to 3G
+#             End
+
+#         End
+
+
+# ElseIf(calltype= Is)
+
+#    If (Lu < Tu)
+#        If (Term  = Class B)
+#            Allocate Service to 3G
+#         End
+
+#     ElseIf(Lw < Tw)
+
+#        If (Term  = Class A)
+#            Allocate Service to WLAN
+#         End
+
+#     ElseIf(Le < Te)
+
+#        If (Term  = Class C)
+#            Allocate Service to LTE
+#         End
+#     End
+
+# ElseIf(calltype= Bs)
+
+#    If (Lu < Tu)
+#        If (Term  = Class B)
+#            Allocate Service to 3G
+#         End
+
+#     ElseIf(Lw < Tw)
+
+#        If (Term  = Class A)
+#            Allocate Service to WLAN
+#         End
+
+#     ElseIf(Le < Te)
+
+#        If (Term  = Class C)
+#            Allocate Service to LTE
+#         End
+#     End
+
+# ElseIf(calltype= Ss)
+
+#    If (Le < Te)
+#        If (Term  = Class C)
+#            Allocate Service to LTE
+#         End
+
+#     ElseIf(Lu < Tu)
+
+#        If (Term  = Class B)
+#            Allocate Service to 3G
+#         End
+
+#     ElseIf(Lw < Tw)
+
+#        If (Term  = Class A)
+#            Allocate Service to WLAN
+#         End
+#     End
+
+# End
+
+    pass
