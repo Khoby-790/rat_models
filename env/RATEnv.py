@@ -8,8 +8,16 @@ NUMBER_OF_ACTIONS = 3
 NAME_OF_STABLE_COLUMN = ""
 MAX_STEPS = 20000
 
+# Capacities
+_2G_CAPACITY = 50
+_3G_CAPACITY = 50
+_LTE_CAPACITY = 50
+
+
+# Thresholds
 THRESHOLD_FOR_2G = 12000
 THRESHOLD_FOR_3G = 32000
+THRESHOLD_FOR_LTE = 32990
 
 INITIAL_SCORE = 1000
 
@@ -63,20 +71,17 @@ class RATEnv(Env):
     def _take_action(self, action):
         # take an action
         callType = action["service_type"]
-#         If(calltype=Cs)
+        if(callType == 1):
+            if(_2G_CAPACITY < THRESHOLD_FOR_2G):
+                return 1
 
-#         If(Lg < Tg)
-#            If(Term=Class A)
-#                Allocate Service to 2G
-#             End
-
-#         ElseIf(Lu < Tu)
-
-#            If (Term  = Class B)
-#                Allocate Service to 3G
-#             End
-
-#         End
+            elif(_3G_CAPACITY < THRESHOLD_FOR_3G):
+                return 2
+        elif(callType == 2):
+            if(_3G_CAPACITY < THRESHOLD_FOR_3G):
+                return 2
+            elif(_2G_CAPACITY < THRESHOLD_FOR_2G):
+                return 1
 
 
 # ElseIf(calltype= Is)
