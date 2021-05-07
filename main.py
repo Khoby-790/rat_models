@@ -1,4 +1,5 @@
 import gym
+import rat_env
 import numpy as np
 from a3c.actor_critic import Agent
 from utils.utils import plot_learning_curve
