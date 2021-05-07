@@ -6,7 +6,7 @@ from gym import wrappers
 
 if __name__ == '__main__':
     #env = gym.make('LunarLander-v2')
-    env = gym.make('CartPole-v0')
+    env = gym.make('rat_env_lx-v0')
     agent = Agent(alpha=1e-5, n_actions=env.action_space.n)
     n_games = 1800
     # uncomment this line and do a mkdir tmp && mkdir video if you want to
