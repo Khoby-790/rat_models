@@ -62,7 +62,7 @@ class RATEnv(Env):
 
     def render(self, mode='human', close=False):
         # Render the environment to the screen
-        pass
+        print(f'Step: {self.current_step}')
 
     def _next_observation(self):
         # Go through the
