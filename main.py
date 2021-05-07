@@ -11,7 +11,7 @@ if __name__ == '__main__':
     n_games = 1800
     # uncomment this line and do a mkdir tmp && mkdir video if you want to
     # record video of the agent playing the game.
-    #env = wrappers.Monitor(env, 'tmp/video', video_callable=lambda episode_id: True, force=True)
+    # env = wrappers.Monitor(env, 'tmp/video', video_callable=lambda episode_id: True, force=True)
     filename = 'cartpole_1e-5_1024x512_1800games.png'
 
     figure_file = 'plots/' + filename
