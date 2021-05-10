@@ -4,10 +4,14 @@ import numpy as np
 from a3c.actor_critic import Agent
 from utils.utils import plot_learning_curve
 from gym import wrappers
+import pandas as pd
+
+# Bring in the dataset
+env_dataset = pd.read_csv("./data/LTE_data.csv")
 
 if __name__ == '__main__':
     #env = gym.make('LunarLander-v2')
-    env = gym.make('rat_env_lx-v0')
+    env = gym.make('rat_env_lx-v0', df=[env_dataset])
     agent = Agent(alpha=1e-5, n_actions=env.action_space.n)
     n_games = 1800
     # uncomment this line and do a mkdir tmp && mkdir video if you want to
