@@ -45,7 +45,7 @@ class Agent:
         self.actor_critic.compile(optimizer=Adam(learning_rate=alpha))
 
     def choose_action(self, observation):
-        state = tf.convert_to_tensor([observation])
+        state = tf.convert_to_tensor(observation)
         _, probs = self.actor_critic(state)
 
         action_probabilities = tfp.distributions.Categorical(probs=probs)
